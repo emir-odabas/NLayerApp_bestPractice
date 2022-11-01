@@ -8,7 +8,7 @@ namespace NLayer.Core.Repositories
         //productRepository.GetAll(x=>x.id>5).ToListAsync();       
         //IQueryable dönen şeyler veri tabanına sorgu atılmaz
         // bunlar((x=>x.id>5) vb..) memoryde birleştirilir ve tek seferde veri tabanına gönderilir.  
-        IQueryable<T> GetAll(Expression<Func<T, bool>> expression);
+        IQueryable<T> GetAll();
         //productRepository.where(x=>x.id>5).OrderBy.ToListAsync();
         //ToListAsync() Dersem veritabanından sorgu yapar
         // IQueryable<T>  önce orderby vb.. yapar en son ToListAsync()

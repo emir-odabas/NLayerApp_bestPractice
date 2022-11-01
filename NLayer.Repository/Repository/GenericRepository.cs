@@ -12,7 +12,7 @@ namespace NLayer.Repository.Repository
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         protected readonly AppDbContext _context;
-        
+
         private readonly DbSet<T> _dbSet;
 
         public GenericRepository(AppDbContext context)
@@ -36,7 +36,7 @@ namespace NLayer.Repository.Repository
             return await _dbSet.AnyAsync(expression);
         }
 
-        public IQueryable<T> GetAll(Expression<Func<T, bool>> expression)
+        public IQueryable<T> GetAll()
         {
             return _dbSet.AsNoTracking().AsQueryable();  //EFCore çekmiş oldugu dataları memory ye almamasını sağlıyoruz .
         }
