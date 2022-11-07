@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NLayer.Core.Models
+﻿namespace NLayer.Core.Models
 {
     public class ProductFeature
     {
@@ -16,7 +10,7 @@ namespace NLayer.Core.Models
 
         public int Width { get; set; }
 
-        public int ProductId { get; set; }
+        public int ProductId { get; set; }   //Hangi producta ait oldugunu burdan anlıyor
 
         public Product Product { get; set; }
     }

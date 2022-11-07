@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NLayer.Core.Models
+﻿namespace NLayer.Core.Models
 {
     public class Product : BaseEntity
     {
@@ -17,9 +10,10 @@ namespace NLayer.Core.Models
 
         public int CategoryId { get; set; }
 
-        public Category Category { get; set; }
+        public Category Category { get; set; }    //Navigation property
 
-        public ProductFeature ProductFeature { get; set; }
+        public ProductFeature ProductFeature { get; set; } //Navigation property
+
 
     }
 }

@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NLayer.Core.UnitOfWorks
+﻿namespace NLayer.Core.UnitOfWorks
 {
-    public  interface IUnitOfWork
+    public interface IUnitOfWork
     {
-       //Bu design pattern veritabanına yapılacak işlemlerin tek bir transaction üzerinden yapılabilmesini sağlıyor 
+        //Bu design pattern veritabanına yapılacak işlemlerin tek bir transaction(işlem) üzerinden yapılabilmesini sağlıyor 
         Task CommitAsync();
 
         void Commit();

@@ -1,11 +1,9 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NLayer.API.Filters;
 using NLayer.Core.DTOs;
 using NLayer.Core.Models;
 using NLayer.Core.Services;
-using NLayer.Service.Services;
 
 namespace NLayer.API.Controllers
 {
@@ -25,12 +23,13 @@ namespace NLayer.API.Controllers
         }
 
         //Get api/products/GetProductsWithCategory
-        [HttpGet("[action]")] 
+        [HttpGet("[action]")]
         public async Task<IActionResult> GetProductsWithCategory()
         {
+
             return CreateActionResult(await _service.GetProductsWithCategory());
         }
-    
+
         [HttpGet]
         public async Task<IActionResult> All()
         {
