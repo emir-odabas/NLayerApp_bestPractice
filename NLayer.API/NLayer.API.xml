@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NLayer.API</name>
+    </assembly>
+    <members>
+        <member name="M:NLayer.API.Controllers.CategoriesController.GetAll">
+            <summary>
+            Tüm kategorilerin listelenmesi
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NLayer.API.Controllers.CategoriesController.GetSingleCategoryByIdWithProducts(System.Int32)">
+            <summary>
+            Kategorinin Idsine göre kategorilerin listelenmesi
+            </summary>
+            <param name="categoryId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NLayer.API.Controllers.ProductsController.GetProductsWithCategory">
+            <summary>
+            Kategoriler içersinde bulunan ürünlerin sıralanışı
+            </summary>
+            <param></param>
+            <returns></returns>
+        </member>
+        <member name="M:NLayer.API.Controllers.ProductsController.All">
+            <summary>
+            Tüm ürünlerin listelenmesi
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NLayer.API.Controllers.ProductsController.GetById(System.Int32)">
+            <summary>
+            Ürün Id sine göre ürün listeleme
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NLayer.API.Controllers.ProductsController.Save(NLayer.Core.DTOs.ProductDto)">
+            <summary>
+            Ürün bilgilerine göre ürün eklem
+            </summary>
+            <param name="productDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NLayer.API.Controllers.ProductsController.Update(NLayer.Core.DTOs.ProductUpdateDto)">
+            <summary>
+            Ürün bilgilerine göre ürün güncelleme
+            </summary>
+            <param name="productUpdateDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NLayer.API.Controllers.ProductsController.Remove(System.Int32)">
+            <summary>
+            Ürün Id sine göre ürün silme
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
