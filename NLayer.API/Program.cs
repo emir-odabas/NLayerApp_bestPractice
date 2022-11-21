@@ -3,6 +3,7 @@ using Autofac.Extensions.DependencyInjection;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using NLayer.API.Filters;
 using NLayer.API.Middlewares;
 using NLayer.API.Modules;
@@ -30,7 +31,27 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
 
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen( c=>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "Web API",
+        Description = "An ASP.NET Core Web API for managing WebAPI items",
+        Contact = new OpenApiContact
+        {
+            Name ="Emir ODABAÞ",
+            Email = string.Format("emir.odabas@infinidium.com.tr"),
+            Url = new Uri("https://github.com/emir-odabas")
+
+        },
+        License = new OpenApiLicense
+        {
+            Name= "License",
+            Url = new Uri("https://infinidium.com.tr/")
+        }
+    });
+});
 builder.Services.AddMemoryCache();
 
 
