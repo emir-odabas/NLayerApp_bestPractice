@@ -52,7 +52,7 @@ builder.Host.UseServiceProviderFactory
     (new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerbuiler => containerbuiler.RegisterModule(new RepoServiceModule()));
 
-
+builder.WebHost.UseUrls("http://*:5000", "https://*:5001");
 
 
 var app = builder.Build();

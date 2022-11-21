@@ -8,6 +8,13 @@ namespace NLayer.API.Controllers
     public class CustomBaseController : ControllerBase
     {
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="response"></param>
+        /// <returns></returns>
         [NonAction]
         public IActionResult CreateActionResult<T>(CustomResponseDto<T> response)
         {
