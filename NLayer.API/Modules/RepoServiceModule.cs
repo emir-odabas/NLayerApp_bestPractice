@@ -21,35 +21,15 @@ namespace NLayer.API.Modules
             builder.RegisterGeneric(typeof(Service<>)).As(typeof(IService<>)).InstancePerLifetimeScope();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
 
-
-
-
-
-            var apiAssembly = Assembly.GetExecutingAssembly();   //Üzerinde çalıştığımız assembly leri al
+            var apiAssembly = Assembly.GetExecutingAssembly();   
             var repoAssembly = Assembly.GetAssembly(typeof(AppDbContext));
             var serviceAssembly = Assembly.GetAssembly(typeof(MapProfile));
-
-
-
 
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name
             .EndsWith("Repository")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
-
-
             builder.RegisterAssemblyTypes(apiAssembly, repoAssembly, serviceAssembly).Where(x => x.Name
             .EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
-
-
-
-            //builder.RegisterType<ProductServiceWithCaching>().As<IProductService>();
-
-
-
-            //InstancePerDependency => Transient
-            //InstancePerLifetimeScope => Scope
-
-
             base.Load(builder);
         }
     }
