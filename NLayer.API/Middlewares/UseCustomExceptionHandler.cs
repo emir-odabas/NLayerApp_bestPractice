@@ -11,7 +11,7 @@ namespace NLayer.API.Middlewares
         {
             app.UseExceptionHandler(config =>
             {
-                //run sonlandırıcı bir middleware dir. 
+                 //run is a terminating middleware
                 config.Run(async context =>
                 {
                     context.Response.ContentType = "application/json";
