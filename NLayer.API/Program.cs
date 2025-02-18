@@ -13,8 +13,7 @@ using NLayer.Service.Validations;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
-// Configuration
-// Add services to the container.
+
 
 builder.Services.AddControllers(options => { options.Filters.Add(new ValidateFilterAttribute()); }).AddFluentValidation(x =>
 x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>());
@@ -26,7 +25,6 @@ builder.Services.Configure<ApiBehaviorOptions>(options =>
     options.SuppressModelStateInvalidFilter = true;
 });
 
-//Yukarýdaki kodda “SuppressModelStateInvalidFilter” true olarak atanmýþtýr, bunun anlamý “Filterlarý Sen Kontrol Etme, Ben kontrol edeceðim”.
 
 
 
@@ -40,7 +38,7 @@ builder.Services.AddSwaggerGen( c=>
         Description = "An ASP.NET Core Web API for managing WebAPI items",
         Contact = new OpenApiContact
         {
-            Name ="Emir ODABAÞ",
+            Name ="Emir ODABAÃž",
             Email = string.Format("emir.odabas@infinidium.com.tr"),
             Url = new Uri("https://github.com/emir-odabas")
 
