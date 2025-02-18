@@ -29,10 +29,6 @@ namespace NLayer.Caching
             _memoryCache = memoryCache;
             _productRepository = productRepository;
             _unitOfWork = unitOfWork;
-
-            //out parametresi ile cache de tutmuş olduğu datayı döner bir metotta birden fazla deger donmek istiyorsak out keywordu kullanılır.
-            //varmı yokmu kontrol ~ CacheProductKey i "_" ile  datayı memory de advocate etmesini engelliyorum ~ true,false
-
             if (!_memoryCache.TryGetValue(CacheProductKey, out _))
             {
                 _memoryCache.Set(CacheProductKey, _productRepository.GetProductsWithCategory().Result);
@@ -78,14 +74,13 @@ namespace NLayer.Caching
                 throw new NotFoundException($"{typeof(Product).Name}({id}) not found");
             }
 
-            return Task.FromResult(product);   //await kullanmadıgımız için FromResult kullanıyoruz
+            return Task.FromResult(product);   
         }
 
         public Task<CustomResponseDto<List<ProductWithCategoryDto>>> GetProductsWithCategory()
         {
-            //var products=  await _productRepository.GetProductsWithCategory();   //Repodan Cekmesini istersem
 
-            var products = _memoryCache.Get<IEnumerable<Product>>(CacheProductKey); // Cache de tutup cekmesini istersem
+            var products = _memoryCache.Get<IEnumerable<Product>>(CacheProductKey); 
 
             var productsWithCategoryDto = _mapper.Map<List<ProductWithCategoryDto>>(products);
 
