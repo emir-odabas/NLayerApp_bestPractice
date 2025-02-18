@@ -22,41 +22,21 @@ namespace NLayer.API.Controllers
             _service = productService;
         }
 
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        //Get api/products/GetProductsWithCategory
         [HttpGet("[action]")]
         public async Task<IActionResult> GetProductsWithCategory()
         {
 
             return CreateActionResult(await _service.GetProductsWithCategory());
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> All()
         {
             var products = await _service.GetAllAsync();
 
             var productDtos = _mapper.Map<List<ProductDto>>(products.ToList());
-            //return Ok(CustomResponseDto<List<ProductDto>>.Success(200, productDtos));
             return CreateActionResult<List<ProductDto>>(CustomResponseDto<List<ProductDto>>.Success(200, productDtos));
 
         }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [ServiceFilter(typeof(NotFoundFilter<Product>))]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
@@ -64,15 +44,8 @@ namespace NLayer.API.Controllers
             var product = await _service.GetByIdAsync(id);
 
             var productDto = _mapper.Map<ProductDto>(product);
-            //return Ok(CustomResponseDto<List<ProductDto>>.Success(200, productDtos));
             return CreateActionResult(CustomResponseDto<ProductDto>.Success(200, productDto));
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="productDto"></param>
-        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Save(ProductDto productDto)
         {
@@ -81,12 +54,6 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<ProductDto>.Success(201, productsDtos));
 
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="productUpdateDto"></param>
-        /// <returns></returns>
         [HttpPut]
         public async Task<IActionResult> Update(ProductUpdateDto productUpdateDto)
         {
@@ -94,13 +61,6 @@ namespace NLayer.API.Controllers
             return CreateActionResult(CustomResponseDto<CustomNoContentResponseDto>.Success(204));
 
         }
-
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> Remove(int id)
         {
