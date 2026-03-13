@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using NLayer.API.Filters;
 using NLayer.API.Middlewares;
 using NLayer.API.Modules;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using NLayer.Repository;
 using NLayer.Service.Mapping;
 using NLayer.Service.Validations;
@@ -15,8 +16,10 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 
 
-builder.Services.AddControllers(options => { options.Filters.Add(new ValidateFilterAttribute()); }).AddFluentValidation(x =>
-x.RegisterValidatorsFromAssemblyContaining<ProductDtoValidator>());
+builder.Services.AddControllers(options => { options.Filters.Add(new ValidateFilterAttribute()); });
+
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<ProductDtoValidator>();
 
 
 
@@ -59,10 +62,11 @@ builder.Services.AddAutoMapper(typeof(MapProfile));
 
 builder.Services.AddDbContext<AppDbContext>(x =>
 {
-    x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"), option =>
+    x.UseNpgsql(builder.Configuration.GetConnectionString("SqlConnection"), option =>
     {
         option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
     });
+    x.ConfigureWarnings(w => w.Ignore(RelationalEventId.PendingModelChangesWarning));
 });
 
 
@@ -71,7 +75,7 @@ builder.Host.UseServiceProviderFactory
     (new AutofacServiceProviderFactory());
 builder.Host.ConfigureContainer<ContainerBuilder>(containerbuiler => containerbuiler.RegisterModule(new RepoServiceModule()));
 
-builder.WebHost.UseUrls("http://*:5000", "https://*:5001");
+// builder.WebHost.UseUrls("http://*:5000", "https://*:5001");
 
 
 var app = builder.Build();
@@ -84,7 +88,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.UseCustomException();
 

@@ -1,0 +1,132 @@
+﻿Using launch settings from NLayer.API\Properties\launchSettings.json...
+Building...
+fail: Microsoft.Extensions.Hosting.Internal.Host[11]
+      Hosting failed to start
+      System.InvalidOperationException: Unable to configure HTTPS endpoint. No server certificate was specified, and the default developer certificate could not be found or is out of date.
+      To generate a developer certificate run 'dotnet dev-certs https'. To trust the certificate (Windows and macOS only) run 'dotnet dev-certs https --trust'.
+      For more information on configuring HTTPS see https://go.microsoft.com/fwlink/?linkid=848054.
+         at Microsoft.AspNetCore.Hosting.ListenOptionsHttpsExtensions.UseHttps(ListenOptions listenOptions, Action`1 configureOptions)
+         at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+         at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+         at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+         at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+         at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+         at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+dotnet : Unhandled 
+exception. System.Inval
+idOperationException: 
+Unable to configure 
+HTTPS endpoint. No 
+server certificate was 
+specified, and the 
+default developer 
+certificate could not 
+be found or is out of 
+date.
+At line:1 char:1
++ dotnet run --project 
+NLayer.API > 
+startup_log.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (Unhandled exc   
+ ep...is out of dat    
+e.:String) [], Rem    
+oteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+To generate a 
+developer certificate 
+run 'dotnet dev-certs 
+https'. To trust the 
+certificate (Windows 
+and macOS only) run 
+'dotnet dev-certs 
+https --trust'.
+For more information 
+on configuring HTTPS 
+see https://go.microsof
+t.com/fwlink/?linkid=84
+8054.
+   at Microsoft.AspNetC
+ore.Hosting.ListenOptio
+nsHttpsExtensions.UseHt
+tps(ListenOptions 
+listenOptions, 
+Action`1 
+configureOptions)
+   at Microsoft.AspNetC
+ore.Server.Kestrel.Core
+.Internal.AddressBinder
+.AddressesStrategy.Bind
+Async(AddressBindContex
+t context, 
+CancellationToken 
+cancellationToken)
+   at Microsoft.AspNetC
+ore.Server.Kestrel.Core
+.KestrelServerImpl.Bind
+Async(CancellationToken
+ cancellationToken)
+   at Microsoft.AspNetC
+ore.Server.Kestrel.Core
+.KestrelServerImpl.Star
+tAsync[TContext](IHttpA
+pplication`1 
+application, 
+CancellationToken 
+cancellationToken)
+   at Microsoft.AspNetC
+ore.Hosting.GenericWebH
+ostService.StartAsync(C
+ancellationToken 
+cancellationToken)
+   at Microsoft.Extensi
+ons.Hosting.Internal.Ho
+st.<StartAsync>b__14_1(
+IHostedService 
+service, 
+CancellationToken 
+token)
+   at Microsoft.Extensi
+ons.Hosting.Internal.Ho
+st.ForeachService[T](IE
+numerable`1 services, 
+CancellationToken 
+token, Boolean 
+concurrent, Boolean 
+abortOnFirstException, 
+List`1 exceptions, 
+Func`3 operation)
+   at Microsoft.Extensi
+ons.Hosting.Internal.Ho
+st.StartAsync(Cancellat
+ionToken 
+cancellationToken)
+   at Microsoft.Extensi
+ons.Hosting.HostingAbst
+ractionsHostExtensions.
+RunAsync(IHost host, 
+CancellationToken 
+token)
+   at Microsoft.Extensi
+ons.Hosting.HostingAbst
+ractionsHostExtensions.
+RunAsync(IHost host, 
+CancellationToken 
+token)
+   at Microsoft.Extensi
+ons.Hosting.HostingAbst
+ractionsHostExtensions.
+Run(IHost host)
+   at Program.<Main>$(S
+tring[] args) in C:\Use
+rs\EMIR\Desktop\NLayerA
+pp_bestPractice\NLayer.
+API\Program.cs:line 95
+
