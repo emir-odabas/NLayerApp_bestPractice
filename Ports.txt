@@ -1,6 +1,7 @@
-API => https://localhost:7197/
 API => http://localhost:5197
-
-
-MVC => https://localhost:7287
 MVC => http://localhost:5287
+
+PostgreSQL => localhost:5432
+Database => NLayerDb
+User => postgres
+Password => postgres
